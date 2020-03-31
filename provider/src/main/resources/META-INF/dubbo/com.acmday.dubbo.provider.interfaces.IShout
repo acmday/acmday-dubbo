@@ -1,2 +1,2 @@
-cat = Cat
-dog = Dog
+cat = com.acmday.dubbo.provider.service.impl.Cat
+dog = com.acmday.dubbo.provider.service.impl.Dog
