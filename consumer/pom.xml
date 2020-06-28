@@ -11,7 +11,7 @@
     <artifactId>acmday-dubbo-consumer</artifactId>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-nacos</artifactId>
             <version>${dubbo-registry-nacos.version}</version>
@@ -21,6 +21,11 @@
                     <groupId>com.alibaba</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>

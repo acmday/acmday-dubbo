@@ -16,7 +16,7 @@ public class ApiEchoProvider {
     public static void main(String[] args) throws IOException {
         ServiceConfig<IEchoService> service = new ServiceConfig<>();
         service.setApplication(new ApplicationConfig("api-echo-provider"));
-        service.setRegistry(new RegistryConfig("nacos://127.0.0.1:8848"));
+        service.setRegistry(new RegistryConfig("zookeeper://127.0.0.1:2182"));
         service.setInterface(IEchoService.class);
         service.setRef(new EchoServiceImpl());
         service.export();

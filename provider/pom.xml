@@ -42,6 +42,11 @@
             <version>${dubbo.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
             <groupId>io.dubbo.springboot</groupId>
             <artifactId>spring-boot-starter-dubbo</artifactId>
             <version>${springboot-dubbo.version}</version>
@@ -53,9 +58,10 @@
             </exclusions>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-nacos</artifactId>
+            <version>0.0.1</version>
             <version>${dubbo-registry-nacos.version}</version>
             <exclusions>
                 <exclusion>
@@ -63,7 +69,7 @@
                     <groupId>com.alibaba</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.alibaba.spring</groupId>
             <artifactId>spring-context-support</artifactId>

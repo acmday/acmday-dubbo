@@ -15,6 +15,6 @@ public class EchoServiceImpl implements IEchoService {
 
     @Override
     public String echo(String message) {
-        return "message:" + message + ", address=" + RpcContext.getContext().getRemoteAddress();
+        return "message:" + message + ", address=" + RpcContext.getContext().getRemoteAddressString();
     }
 }

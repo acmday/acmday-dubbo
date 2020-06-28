@@ -16,7 +16,7 @@ public class ApiEchoConsumer {
     public static void main(String[] args) throws IOException {
         ReferenceConfig<IEchoService> reference = new ReferenceConfig<IEchoService>();
         reference.setApplication(new ApplicationConfig("api-echo-consumer"));
-        reference.setRegistry(new RegistryConfig("nacos://127.0.0.1:8848"));
+        reference.setRegistry(new RegistryConfig("zookeeper://127.0.0.1:2182"));
         reference.setInterface(IEchoService.class);
         IEchoService greetingService = reference.get();
         String message = greetingService.echo("acmday");
