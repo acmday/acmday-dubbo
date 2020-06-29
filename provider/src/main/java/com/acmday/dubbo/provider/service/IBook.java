@@ -1,4 +1,4 @@
-package com.acmday.dubbo.provider.interfaces;
+package com.acmday.dubbo.provider.service;
 
 /**
  * @author acmday.

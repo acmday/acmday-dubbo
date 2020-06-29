@@ -1,7 +1,7 @@
 package com.acmday.dubbo.provider.service.impl;
 
 
-import com.acmday.dubbo.provider.interfaces.IShout;
+import com.acmday.dubbo.provider.service.IShout;
 
 /**
  * @author acmday

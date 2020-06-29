@@ -1,11 +1,13 @@
 package com.acmday.dubbo.provider.spi;
 
 import com.acmday.dubbo.provider.BaseClass;
-import com.acmday.dubbo.provider.interfaces.IBook;
-import com.acmday.dubbo.provider.interfaces.IShout;
+import com.acmday.dubbo.provider.bo.Rain;
+import com.acmday.dubbo.provider.service.IBook;
+import com.acmday.dubbo.provider.service.IShout;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 import org.junit.Test;
 
+import javax.annotation.Resource;
 import java.util.ServiceLoader;
 
 /**
@@ -14,6 +16,9 @@ import java.util.ServiceLoader;
  */
 public class Spi extends BaseClass {
 
+    @Resource
+    Rain rain;
+
     @Test
     public void dubboSpi() {
         ExtensionLoader<IShout> extensionLoader = ExtensionLoader.getExtensionLoader(IShout.class);
@@ -21,6 +26,7 @@ public class Spi extends BaseClass {
         cat.shout();
         IShout dog = extensionLoader.getExtension("dog");
         dog.shout();
+        rain.print();
     }
 
     @Test

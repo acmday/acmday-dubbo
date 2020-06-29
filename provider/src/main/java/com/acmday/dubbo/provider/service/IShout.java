@@ -1,4 +1,4 @@
-package com.acmday.dubbo.provider.interfaces;
+package com.acmday.dubbo.provider.service;
 
 import com.alibaba.dubbo.common.extension.SPI;
 

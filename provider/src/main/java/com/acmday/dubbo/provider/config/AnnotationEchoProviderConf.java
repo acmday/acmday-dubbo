@@ -32,9 +32,9 @@ public class AnnotationEchoProviderConf {
     @Bean
     public RegistryConfig registryConfig(){
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setProtocol("nacos");
+        registryConfig.setProtocol("zookeeper");
         registryConfig.setAddress("localhost");
-        registryConfig.setPort(8848);
+        registryConfig.setPort(2182);
         return registryConfig;
     }
 

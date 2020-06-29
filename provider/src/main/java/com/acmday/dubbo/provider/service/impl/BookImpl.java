@@ -1,6 +1,6 @@
 package com.acmday.dubbo.provider.service.impl;
 
-import com.acmday.dubbo.provider.interfaces.IBook;
+import com.acmday.dubbo.provider.service.IBook;
 
 /**
  * @author acmday.

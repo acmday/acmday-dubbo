@@ -6,7 +6,7 @@
                  http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="xml-echo-provider"/>
-    <dubbo:registry address="nacos://127.0.0.1:8848"/>
+    <dubbo:registry address="zookeeper://127.0.0.1:2182"/>
     <dubbo:protocol name="dubbo" port="20880"/>
 
     <bean id="echoService" class="com.acmday.dubbo.provider.service.impl.EchoServiceImpl"/>
