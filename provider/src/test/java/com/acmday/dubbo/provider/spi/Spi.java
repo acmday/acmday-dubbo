@@ -8,6 +8,7 @@ import com.alibaba.dubbo.common.extension.ExtensionLoader;
 import org.junit.Test;
 
 import javax.annotation.Resource;
+import java.net.URL;
 import java.util.ServiceLoader;
 
 /**
