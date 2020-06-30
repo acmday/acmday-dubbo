@@ -1,6 +1,8 @@
 package com.acmday.dubbo.provider.jdk;
 
 import com.acmday.dubbo.provider.BaseClass;
+import com.acmday.dubbo.provider.service.IBook;
+import com.sun.org.apache.bcel.internal.generic.FADD;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -21,6 +23,17 @@ public class ClassLoaderTest extends BaseClass {
 
     private static final String PREFIX = "META-INF/services/";
     private static final String INTERFACES = "com.acmday.dubbo.provider.service.IBook";
+    private static final String CLASS_NAME = "com.acmday.dubbo.provider.service.impl.BookImpl";
+
+    @Test
+    public void getClassByName() {
+        try {
+            Class clazz = Class.forName(CLASS_NAME, false, Thread.currentThread().getContextClassLoader());
+            log.info("act=getClassByName simpleName={} \n methods={}", clazz.getSimpleName(), clazz.getMethods());
+        } catch (ClassNotFoundException e) {
+            log.error("act=getClassByName e=", e);
+        }
+    }
 
     @Test
     public void getResource() {
