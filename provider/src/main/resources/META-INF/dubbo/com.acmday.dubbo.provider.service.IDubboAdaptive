@@ -1,0 +1,3 @@
+dubbo=com.acmday.dubbo.provider.service.impl.DubboAdaptiveExtImpl
+spring=com.acmday.dubbo.provider.service.impl.SpringAdaptiveExtImpl
+springboot=com.acmday.dubbo.provider.service.impl.SpringBootAdaptiveExtImpl

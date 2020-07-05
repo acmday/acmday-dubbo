@@ -1,0 +1,1 @@
+spring=com.acmday.dubbo.provider.service.impl.EchoAdaptiveExtImpl

@@ -1,14 +1,15 @@
 package com.acmday.dubbo.provider.spi;
 
 import com.acmday.dubbo.provider.BaseClass;
-import com.acmday.dubbo.provider.bo.Rain;
 import com.acmday.dubbo.provider.service.IBook;
+import com.acmday.dubbo.provider.service.IDubboAdaptive;
+import com.acmday.dubbo.provider.service.IEchoAdaptiveExt;
 import com.acmday.dubbo.provider.service.IShout;
+import com.acmday.dubbo.provider.service.impl.AdaptiveExtProxy;
+import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 import org.junit.Test;
 
-import javax.annotation.Resource;
-import java.net.URL;
 import java.util.ServiceLoader;
 
 /**
@@ -17,8 +18,20 @@ import java.util.ServiceLoader;
  */
 public class Spi extends BaseClass {
 
-    @Resource
-    Rain rain;
+    @Test
+    public void dubboAdaptive() {
+        URL url = URL.valueOf("acmday://localhost/test?v=dubbo");
+        ExtensionLoader<IDubboAdaptive> extExtensionLoader = ExtensionLoader.getExtensionLoader(IDubboAdaptive.class);
+        IDubboAdaptive adaptiveExt = extExtensionLoader.getAdaptiveExtension();
+        System.out.println(adaptiveExt.echo("hello", url));
+    }
+
+    @Test
+    public void adaptive() {
+        URL url = URL.valueOf("acmday://localhost/test?adaptive.ext=spring");
+        IEchoAdaptiveExt iEchoAdaptiveExt = new AdaptiveExtProxy();
+        System.out.println(iEchoAdaptiveExt.echo("hello", url));
+    }
 
     @Test
     public void dubboSpi() {
@@ -27,7 +40,6 @@ public class Spi extends BaseClass {
         cat.shout();
         IShout dog = extensionLoader.getExtension("dog");
         dog.shout();
-        rain.print();
     }
 
     @Test
