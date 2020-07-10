@@ -8,9 +8,10 @@ import com.alibaba.dubbo.common.extension.SPI;
  * @author acmday.
  * @date 2020/7/4.
  */
-@SPI
+@SPI//("springboot")
 public interface IDubboAdaptive {
 
     @Adaptive({"v"})
+    //@Adaptive
     String echo(String msg, URL url);
 }
