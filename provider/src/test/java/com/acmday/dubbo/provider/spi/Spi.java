@@ -19,16 +19,11 @@ import java.util.ServiceLoader;
 public class Spi extends BaseClass {
 
     @Test
-    public void f() {
-
-        first:
-            for (int i=0; i<10; ++i) {
-                System.out.println("----first");
-                if(i == 5){
-                    break first;
-                }
-            }
-        System.out.println("over");
+    public void extensionLoader() {
+        /*URL url = URL.valueOf("acmday://localhost/test?v=spring");
+        ExtensionLoader<IDubboAdaptive> extExtensionLoader = ExtensionLoader.getExtensionLoader(IDubboAdaptive.class);
+        IDubboAdaptive adaptiveExt = extExtensionLoader.getActivateExtension
+        System.out.println(adaptiveExt.echo("hello", url));*/
     }
 
     /**
@@ -36,7 +31,6 @@ public class Spi extends BaseClass {
      */
     @Test
     public void dubboAdaptive() {
-        // URL url = URL.valueOf("acmday://localhost/test");
         URL url = URL.valueOf("acmday://localhost/test?v=spring");
         ExtensionLoader<IDubboAdaptive> extExtensionLoader = ExtensionLoader.getExtensionLoader(IDubboAdaptive.class);
         IDubboAdaptive adaptiveExt = extExtensionLoader.getAdaptiveExtension();

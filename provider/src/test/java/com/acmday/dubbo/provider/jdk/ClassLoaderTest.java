@@ -1,7 +1,9 @@
 package com.acmday.dubbo.provider.jdk;
 
 import com.acmday.dubbo.provider.BaseClass;
+import com.acmday.dubbo.provider.bo.Rain;
 import com.acmday.dubbo.provider.service.IBook;
+import com.acmday.dubbo.provider.service.impl.SpringAdaptiveExtImpl;
 import com.sun.org.apache.bcel.internal.generic.FADD;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -10,8 +12,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Enumeration;
 
 /**
@@ -24,6 +28,20 @@ public class ClassLoaderTest extends BaseClass {
     private static final String PREFIX = "META-INF/services/";
     private static final String INTERFACES = "com.acmday.dubbo.provider.service.IBook";
     private static final String CLASS_NAME = "com.acmday.dubbo.provider.service.impl.BookImpl";
+
+
+    @Test
+    public void getSetterProperty() {
+        log.info("-------------------");
+        Arrays.stream(Rain.class.getMethods()).filter(elem -> elem.getName().startsWith("set")).forEach(elem ->{
+            log.info(getSetterProperty(elem));
+        });
+        log.info("-------------------");
+    }
+
+    private String getSetterProperty(Method method) {
+        return method.getName().length() > 3 ? method.getName().substring(3, 4).toLowerCase() + method.getName().substring(4) : "";
+    }
 
     @Test
     public void getClassByName() {

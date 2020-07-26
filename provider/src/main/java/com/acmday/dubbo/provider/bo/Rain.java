@@ -9,7 +9,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class Rain {
 
+    private String level;
+
     public void print(){
         System.out.println("---- rain -----");
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }
