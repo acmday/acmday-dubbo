@@ -21,15 +21,15 @@ public class JavassistTest {
         ClassPool classPool = ClassPool.getDefault();
         CtClass ctClass = classPool.makeClass("HelloWorld");
         try {
-            CtMethod ctMethod = CtNewMethod.make("public void test() {\n" +
-                    "        System.out.println(\"Hello World!\");\n" +
+            CtMethod ctMethod = CtNewMethod.make("public void test(String message) {\n" +
+                    "        System.out.println(message);\n" +
                     "    }", ctClass);
             ctClass.addMethod(ctMethod);
             Class aClass = ctClass.toClass();
 
             Object ob = aClass.newInstance();
-            Method method = aClass.getDeclaredMethod("test", null);
-            method.invoke(ob, null);
+            Method method = aClass.getDeclaredMethod("test", String.class);
+            method.invoke(ob, "Hello World, acmday!");
 
         } catch (CannotCompileException | IllegalAccessException | InstantiationException
                 | NoSuchMethodException | InvocationTargetException e) {
