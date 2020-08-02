@@ -1,2 +1,3 @@
+#spring-boot-autoconfigure
 server:
   port: 6123
